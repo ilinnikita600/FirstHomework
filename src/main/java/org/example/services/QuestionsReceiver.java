@@ -1,4 +1,6 @@
-package org.example;
+package org.example.services;
+
+import org.example.models.Question;
 
 import java.io.IOException;
 import java.util.Iterator;
