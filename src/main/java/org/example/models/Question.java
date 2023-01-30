@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Question {
     private String question;
     private ArrayList<String> variationsOfAnswers;
+    private String correctAnswer;
     private int questionId;
 
     public Question() {
@@ -20,6 +21,6 @@ public class Question {
     }
     @Override
     public String toString() {
-        return question + " " + variationsOfAnswers;
+        return question;
     }
 }
