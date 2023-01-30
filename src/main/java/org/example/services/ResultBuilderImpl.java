@@ -2,11 +2,13 @@ package org.example.services;
 
 import org.example.models.Question;
 import org.example.models.Result;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
+@PropertySource("/props/generalConfig.properties")
 public class ResultBuilderImpl implements ResultBuilder {
     @Override
     public Result getResult(List<Question> questions, List<String> answers) throws InvalidPropertiesFormatException {
@@ -20,7 +22,6 @@ public class ResultBuilderImpl implements ResultBuilder {
         while(questionsIterator.hasNext()) {
             questionsResult.put(questionsIterator.next(), answersIterator.next().trim());
         }
-
         return new Result(questionsResult);
     }
 }

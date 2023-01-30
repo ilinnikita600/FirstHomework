@@ -1,7 +1,6 @@
 package org.example.models;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 public class Result {
     private final Map<Question, String> questionsResult;

@@ -1,7 +1,6 @@
 package org.example.models;
 
 import lombok.Data;
-import org.example.services.QuestionsReceiver;
 
 import java.util.ArrayList;
 
