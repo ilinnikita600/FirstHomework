@@ -1,5 +1,6 @@
 package org.example.services;
 
+import org.example.annotations.Loggable;
 import org.example.models.Question;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -11,6 +12,7 @@ import java.util.Iterator;
 
 @Service
 @PropertySource("/props/generalConfig.properties")
+@Loggable
 public class QuestionReceiverImpl implements QuestionsReceiver {
     private final String questionsPath;
     private final String correctAnswersPath;

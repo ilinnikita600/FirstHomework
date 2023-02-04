@@ -1,5 +1,6 @@
 package org.example.services;
 
+import org.example.annotations.Loggable;
 import org.example.models.Question;
 import org.example.models.Result;
 import org.springframework.context.annotation.PropertySource;
@@ -9,6 +10,7 @@ import java.util.*;
 
 @Component
 @PropertySource("/props/generalConfig.properties")
+@Loggable
 public class ResultBuilderImpl implements ResultBuilder {
     @Override
     public Result getResult(List<Question> questions, List<String> answers) throws InvalidPropertiesFormatException {

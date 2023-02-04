@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.annotations.Wrapable;
 import org.example.models.Result;
 import org.example.services.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,7 +13,10 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfig.class);
         QuestionsReceiver questionsReceiver = context.getBean(QuestionsReceiver.class);
         try {
-            AnswersReceiver answersReceiver = new AnswersReceiverImpl(questionsReceiver.getQuestions(), System.in, System.out);
+            Wrapable answersReceiverWrapper = (Wrapable) context.getBean("answersReceiverWrapper");
+            answersReceiverWrapper.setWrapObject(new AnswersReceiverImpl(questionsReceiver.getQuestions(), System.in, System.out));
+            AnswersReceiver answersReceiver = context.getBean(AnswersReceiver.class);
+
             while(answersReceiver.askQuestion());
             ResultBuilder resultBuilder = context.getBean(ResultBuilder.class);
             Result result = answersReceiver.getResult(resultBuilder);
